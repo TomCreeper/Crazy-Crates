@@ -100,7 +100,7 @@ public class CrazyCrates {
 		giveVirtualKeysWhenInventoryFull = Files.CONFIG.getFile().getBoolean("Settings.Give-Virtual-Keys-When-Inventory-Full");
 		if(fileManager.isLogging()) System.out.println(fileManager.getPrefix() + "Loading all crate information...");
 		for(String crateName : fileManager.getAllCratesNames()) {
-			//			if(fileManager.isLogging()) System.out.println(fileManager.getPrefix() + "Loading " + crateName + ".yml information....");
+						if(fileManager.isLogging()) System.out.println(fileManager.getPrefix() + "Loading " + crateName + ".yml information....");
 			try {
 				FileConfiguration file = fileManager.getFile(crateName).getFile();
 				ArrayList<Prize> prizes = new ArrayList<>();
@@ -156,7 +156,7 @@ public class CrazyCrates {
 					}
 				}
 				crates.add(new Crate(crateName, previewName, CrateType.getFromName(file.getString("Crate.CrateType")), getKey(file), prizes, file, newPlayersKeys, tiers));
-				//				if(fileManager.isLogging()) System.out.println(fileManager.getPrefix() + "" + crateName + ".yml has been loaded.");
+								if(fileManager.isLogging()) System.out.println(fileManager.getPrefix() + "" + crateName + ".yml has been loaded.");
 			}catch(Exception e) {
 				brokecrates.add(crateName);
 				Bukkit.getLogger().log(Level.WARNING, fileManager.getPrefix() + "There was an error while loading the " + crateName + ".yml file.");
@@ -242,7 +242,7 @@ public class CrazyCrates {
 			if(removePlayers.size() > 0) {
 				if(logging) System.out.println(fileManager.getPrefix() + removePlayers.size() + " player's data has been marked to be removed.");
 				for(String uuid : removePlayers) {
-					//				if(logging) System.out.println(fileManager.getPrefix() + "Removed " + data.getString("Players." + uuid + ".Name") + "'s empty data from the data.yml.");
+									if(logging) System.out.println(fileManager.getPrefix() + "Removed " + data.getString("Players." + uuid + ".Name") + "'s empty data from the data.yml.");
 					data.set("Players." + uuid, null);
 				}
 				if(logging) System.out.println(fileManager.getPrefix() + "All empty player data has been removed.");
